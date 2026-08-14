@@ -1,0 +1,5 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  included_files = ["assets/downloads/Momentum_AI_Governance_Checklist.pdf"]
