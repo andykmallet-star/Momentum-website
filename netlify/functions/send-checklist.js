@@ -70,6 +70,7 @@ exports.handler = async (event) => {
 
   if (!RESEND_API_KEY) {
     console.error('send-checklist: RESEND_API_KEY is not set');
+    console.error('send-checklist: env keys visible to function:', Object.keys(process.env).filter(k => !k.startsWith('AWS_') && !k.startsWith('LAMBDA_')).join(', '));
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Server is not configured yet' }) };
   }
 
