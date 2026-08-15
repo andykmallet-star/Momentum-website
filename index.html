@@ -129,39 +129,6 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 .foot-links{display:flex;gap:32px}
 .foot-lnk{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s}
 .foot-lnk:hover{color:rgba(255,255,255,0.7)}
-
-/* RESOURCE / GATED DOWNLOAD */
-.resource-card{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;background:var(--bg-off);border:1px solid var(--border);border-radius:4px;padding:64px}
-.resource-icon{width:56px;height:56px;margin-bottom:24px}
-.resource-list{list-style:none;margin-top:28px;display:grid;gap:12px}
-.resource-list li{font-size:14px;color:var(--mid);padding-left:18px;position:relative;line-height:1.6}
-.resource-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--gold)}
-.btn-p.btn-download{cursor:pointer;border:none;font-family:inherit}
-
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,27,48,0.72);z-index:500;align-items:center;justify-content:center;padding:24px}
-.modal-overlay.open{display:flex}
-.modal-box{background:#fff;border-radius:4px;max-width:480px;width:100%;padding:48px 40px;position:relative;max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;padding:6px;line-height:0;color:var(--muted)}
-.modal-close svg{width:18px;height:18px;display:block}
-.modal-box h3{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.modal-box .modal-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px}
-.form-field{margin-bottom:18px}
-.form-field label{display:block;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
-.form-field input{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:2px;font-family:inherit;font-size:15px;color:var(--text);background:#fff}
-.form-field input:focus{outline:none;border-color:var(--accent)}
-.form-honeypot{position:absolute;left:-9999px;top:-9999px}
-.form-submit{width:100%;margin-top:8px;text-align:center}
-.form-submit:disabled{opacity:0.6;cursor:not-allowed}
-.form-msg{font-size:13px;margin-top:14px;line-height:1.6}
-.form-msg.error{color:#B8462E}
-.form-success{display:none;text-align:center;padding:12px 0}
-.form-success svg{width:44px;height:44px;margin-bottom:16px}
-.form-success h3{margin-bottom:10px}
-.form-success p{font-size:14px;color:var(--muted);line-height:1.7}
-@media(max-width:900px){
-  .resource-card{grid-template-columns:1fr;gap:32px;padding:40px 28px}
-}
 @media(max-width:900px){
   .nav-links{display:none}
   .burger{display:flex}
@@ -199,6 +166,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <a class="nl" href="/services">Services</a>
       <a class="nl" href="/technologies">Technologies</a>
       <a class="nl" href="/our-team">Our Team</a>
+      <a class="nl" href="/free-resources">Free Resources</a>
       <a class="nl" href="/contact">Contact</a>
       <a class="nav-btn" href="/contact">Get in Touch</a>
     </div>
@@ -213,6 +181,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a href="/services">Services</a>
   <a href="/technologies">Technologies</a>
   <a href="/our-team">Our Team</a>
+  <a href="/free-resources">Free Resources</a>
   <a href="/contact">Contact</a>
   <a class="nav-btn" href="/contact">Get in Touch</a>
 </div>
@@ -379,37 +348,6 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   </div>
 </div>
 
-<!-- FREE RESOURCE: AI GOVERNANCE CHECKLIST -->
-<div class="section">
-  <div class="section-inner">
-    <div class="resource-card">
-      <div>
-        <span class="overline">Free Resource</span>
-        <h2 class="display">AI Governance &amp;<br><strong>Risk Assessment Checklist.</strong></h2>
-        <p class="body-text" style="margin-top:24px">A JFSC-aligned checklist to help you assess governance, risk management, data protection and regulatory compliance across your business's AI deployments.</p>
-        <ul class="resource-list">
-          <li>Governance ownership &amp; board oversight</li>
-          <li>Data protection &amp; cybersecurity controls</li>
-          <li>Vendor due diligence &amp; third-party risk</li>
-          <li>Bias, fairness &amp; regulatory compliance checks</li>
-          <li>AI register &amp; ongoing monitoring framework</li>
-        </ul>
-      </div>
-      <div>
-        <svg class="resource-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="4" width="28" height="32" rx="2" stroke="#B8973A" stroke-width="1.5"/>
-          <path d="M13 14h14M13 20h14M13 26h9" stroke="#B8973A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M13 9h4" stroke="#B8973A" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <p class="body-text">Download the full checklist to work through with your leadership team or board — free, no obligation.</p>
-        <div style="margin-top:28px">
-          <button type="button" class="btn-p btn-download" onclick="openChecklistModal()">Download the Checklist</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- SECTORS & CLIENTS -->
 <div class="section section-dark">
   <div class="section-inner">
@@ -451,50 +389,6 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a class="btn-p" href="/contact">Get in Touch</a>
 </div>
 
-<!-- CHECKLIST DOWNLOAD MODAL -->
-<div class="modal-overlay" id="checklistModal" onclick="if(event.target===this)closeChecklistModal()">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeChecklistModal()" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </button>
-
-    <div id="checklistFormWrap">
-      <h3>Get the Checklist</h3>
-      <p class="modal-sub">Tell us where to send it — we'll email the AI Governance Checklist straight to your inbox.</p>
-      <form id="checklistForm" onsubmit="return submitChecklistForm(event)">
-        <div class="form-field">
-          <label for="cf-name">Full name</label>
-          <input type="text" id="cf-name" name="name" autocomplete="name" required>
-        </div>
-        <div class="form-field">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required>
-        </div>
-        <div class="form-field">
-          <label for="cf-company">Company</label>
-          <input type="text" id="cf-company" name="company" autocomplete="organization" required>
-        </div>
-        <div class="form-field">
-          <label for="cf-phone">Phone</label>
-          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" required>
-        </div>
-        <div class="form-field form-honeypot" aria-hidden="true">
-          <label for="cf-website">Website</label>
-          <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-        <button type="submit" class="btn-p form-submit" id="checklistSubmitBtn">Send Me the Checklist</button>
-        <div class="form-msg error" id="checklistFormMsg" style="display:none"></div>
-      </form>
-    </div>
-
-    <div class="form-success" id="checklistSuccess">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="#2E8FD4" stroke-width="1.5"/><path d="M13 21l5 5 10-12" stroke="#2E8FD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <h3>Check your inbox</h3>
-      <p>We've sent the AI Governance Checklist to your email address. If it doesn't arrive in a few minutes, please check your spam folder.</p>
-    </div>
-  </div>
-</div>
-
 <footer>
   <div class="foot-inner">
     <div class="foot-l"><strong>Momentum Advisory</strong> &nbsp;·&nbsp; Jersey, Channel Islands</div>
@@ -503,6 +397,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <a class="foot-lnk" href="/services">Services</a>
       <a class="foot-lnk" href="/technologies">Technologies</a>
       <a class="foot-lnk" href="/our-team">Our Team</a>
+      <a class="foot-lnk" href="/free-resources">Free Resources</a>
       <a class="foot-lnk" href="/contact">Contact</a>
     </div>
   </div>
@@ -512,59 +407,6 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');
-}
-
-function openChecklistModal(){
-  document.getElementById('checklistModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeChecklistModal(){
-  document.getElementById('checklistModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') closeChecklistModal();
-});
-
-async function submitChecklistForm(e){
-  e.preventDefault();
-  const form = document.getElementById('checklistForm');
-  const btn = document.getElementById('checklistSubmitBtn');
-  const msg = document.getElementById('checklistFormMsg');
-  msg.style.display='none';
-
-  const payload = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    company: form.company.value.trim(),
-    phone: form.phone.value.trim(),
-    website: form.website.value // honeypot
-  };
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  try {
-    const res = await fetch('/.netlify/functions/send-checklist', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
-    const data = await res.json().catch(()=>({}));
-
-    if(!res.ok){
-      throw new Error(data.error || 'Something went wrong — please try again.');
-    }
-
-    document.getElementById('checklistFormWrap').style.display='none';
-    document.getElementById('checklistSuccess').style.display='block';
-  } catch(err){
-    msg.textContent = err.message || 'Something went wrong — please try again.';
-    msg.style.display='block';
-    btn.disabled = false;
-    btn.textContent = 'Send Me the Checklist';
-  }
-  return false;
 }
 </script>
 </body>
