@@ -85,7 +85,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 .foot-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .foot-l{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:0.04em}
 .foot-l strong{color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em}
-.foot-links{display:flex;gap:32px}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
 .foot-lnk{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s}
 .foot-lnk:hover{color:rgba(255,255,255,0.7)}
 @media(max-width:900px){
@@ -118,10 +118,13 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <a class="nl" href="/services">Services</a>
       <a class="nl" href="/technologies">Technologies</a>
       <a class="nl" href="/our-team">Our Team</a>
+      <a class="nl" href="/free-resources">Free Resources</a>
       <a class="nl active" href="/contact">Contact</a>
       <a class="nav-btn" href="/contact">Get in Touch</a>
-      <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -130,6 +133,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a href="/services">Services</a>
   <a href="/technologies">Technologies</a>
   <a href="/our-team">Our Team</a>
+  <a href="/free-resources">Free Resources</a>
   <a href="/contact">Contact</a>
   <a class="nav-btn" href="/contact">Get in Touch</a>
 </div>
@@ -199,7 +203,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
           </div>
           <div class="fg"><label>Message</label><textarea name="message" placeholder="Please provide a brief overview of your requirements…" id="f-msg"></textarea></div>
           <button type="submit" class="form-sub">Send Enquiry</button>
-          <p class="form-note">All enquiries treated in strict confidence.</p>
+          <p class="form-note">All enquiries treated in strict confidence. See our <a href="/privacy" style="text-decoration:underline">Privacy Statement</a>.</p>
         </form>
       </div>
       <div class="form-ok" id="form-ok">
@@ -214,8 +218,14 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 <footer><div class="foot-inner">
   <div class="foot-l"><strong>Momentum Advisory</strong> &nbsp;·&nbsp; Jersey, Channel Islands</div>
   <div class="foot-links">
-    <a class="foot-lnk" href="/">Home</a><a class="foot-lnk" href="/services">Services</a><a class="foot-lnk" href="/technologies">Technologies</a><a class="foot-lnk" href="/our-team">Our Team</a><a class="foot-lnk" href="/contact">Contact</a>
-  </div>
+      <a class="foot-lnk" href="/">Home</a>
+      <a class="foot-lnk" href="/services">Services</a>
+      <a class="foot-lnk" href="/technologies">Technologies</a>
+      <a class="foot-lnk" href="/our-team">Our Team</a>
+      <a class="foot-lnk" href="/free-resources">Free Resources</a>
+      <a class="foot-lnk" href="/contact">Contact</a>
+      <a class="foot-lnk" href="/privacy">Privacy</a>
+    </div>
 </div></footer>
 
 <script>

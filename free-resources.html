@@ -127,7 +127,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 .foot-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .foot-l{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:0.04em}
 .foot-l strong{color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em}
-.foot-links{display:flex;gap:32px}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
 .foot-lnk{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s}
 .foot-lnk:hover{color:rgba(255,255,255,0.7)}
 
@@ -217,7 +217,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <a class="nl" href="/contact">Contact</a>
       <a class="nav-btn" href="/contact">Get in Touch</a>
     </div>
-    <button class="burger" id="burger" onclick="toggleMenu()">
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -306,6 +306,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
           <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" class="btn-p form-submit" id="checklistSubmitBtn">Send Me the Checklist</button>
+        <p class="form-msg" style="color:var(--muted);text-align:center">We'll email you the checklist and occasional relevant insights. Unsubscribe at any time. See our <a href="/privacy" style="text-decoration:underline">Privacy Statement</a>.</p>
         <div class="form-msg error" id="checklistFormMsg" style="display:none"></div>
       </form>
     </div>
@@ -328,6 +329,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <a class="foot-lnk" href="/our-team">Our Team</a>
       <a class="foot-lnk" href="/free-resources">Free Resources</a>
       <a class="foot-lnk" href="/contact">Contact</a>
+      <a class="foot-lnk" href="/privacy">Privacy</a>
     </div>
   </div>
 </footer>
