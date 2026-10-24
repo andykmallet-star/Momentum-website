@@ -65,7 +65,7 @@ h2.display strong{font-weight:700}
 .svc-detail-label h3{font-size:clamp(20px,2.5vw,30px);font-weight:300;color:var(--navy);line-height:1.2;margin-top:12px}
 .svc-detail-label h3 strong{font-weight:700}
 .svc-detail-label p{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic;line-height:1.65}
-.svc-img{margin-top:28px;height:240px}
+.img-frame.svc-img{margin-top:24px;height:240px}
 .svc-panel{margin-top:28px;height:240px;border-radius:3px;background:var(--grad-dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .svc-panel::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(184,151,58,0.22) 0%,transparent 70%)}
 .svc-panel svg{width:92px;height:92px;position:relative;z-index:1}
@@ -93,7 +93,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   .nav-links{display:none}
   .burger{display:flex}
   .svc-detail{grid-template-columns:1fr;gap:24px}
-  .svc-img,.svc-panel{height:200px}
+  .img-frame.svc-img,.svc-panel{height:200px}
   .diff-grid{grid-template-columns:1fr}
   .section{padding:64px 24px}
   .nav-inner{padding:0 24px}
@@ -189,7 +189,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
     </div>
   </div>
   <div class="svc-detail reveal" id="ai-data-protection">
-    <div class="svc-detail-label"><span class="overline">AI &amp; Data Protection</span><h3>AI Governance &amp; <strong>Data Protection</strong></h3><p>Responsible AI adoption and data protection compliance, led by an experienced DPO</p><div class="svc-panel" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4l13 5v10c0 8-5.6 14.4-13 17-7.4-2.6-13-9-13-17V9l13-5z" stroke="#B8973A" stroke-width="1.2" stroke-linejoin="round"/><path d="M14 20l4 4 8-9" stroke="#5AAEE0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="svc-detail-label"><span class="overline">AI &amp; Data Protection</span><h3>AI Governance &amp; <strong>Data Protection</strong></h3><p>Responsible AI adoption and data protection compliance, led by an experienced DPO</p><figure class="img-frame svc-img"><img src="/images/ai-governance.webp" alt="Professional reviewing data protection and AI governance dashboards overlooking a Jersey harbour at sunset" loading="lazy"></figure></div>
     <div class="svc-detail-body">
       <p>We help regulated businesses adopt AI with confidence and meet their data protection obligations. Our Founder has been the Board member accountable for data protection, cyber security and AI oversight, and has served as Data Protection Officer for three regulated financial services groups in Jersey. Whether you need an independent review, a framework built from the ground up, or an ongoing outsourced DPO, we provide practical, proportionate support that stands up to regulatory scrutiny.</p>
       <ul><li>AI strategy and governance reviews, including independent assurance of existing AI programmes</li><li>AI policies, acceptable use policies, AI risk registers and risk management frameworks</li><li>AI tool due diligence and safe deployment, including Microsoft 365 Copilot</li><li>Data protection and GDPR compliance reviews under the Data Protection (Jersey) Law 2018, UK GDPR and EU GDPR</li><li>Privacy notices, records of processing, DPIAs and data protection risk assessments</li><li>Outsourced Data Protection Officer (DPO) services, including JOIC liaison, breach management and data subject requests</li><li>Board and staff training on AI governance and data protection</li></ul>
