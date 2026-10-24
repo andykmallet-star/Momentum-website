@@ -65,7 +65,7 @@ h2.display{font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;lette
 h2.display strong{font-weight:700}
 .body-text{font-size:17px;font-weight:300;color:var(--mid);line-height:1.9}
 .body-text strong{font-weight:500;color:var(--text)}
-.page-hero{background-image:url('https://i.ibb.co/M51zJr5N/i-Stock-1500645450.jpg');background-size:cover;background-position:center;padding:160px 48px 80px;position:relative}
+.page-hero{padding:160px 48px 80px;position:relative}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,27,48,0.88) 0%,rgba(15,46,80,0.80) 50%,rgba(10,36,64,0.86) 100%);z-index:0}
 .ph-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .page-hero h1{font-size:clamp(32px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px}
@@ -83,6 +83,8 @@ h2.display strong{font-weight:700}
 .tech-logo{width:100%;height:56px;display:flex;align-items:center;justify-content:center}
 .tech-logo svg{max-height:48px;max-width:100%;width:auto;height:auto;display:block}
 .tech-name{font-size:14px;font-weight:600;color:var(--navy)}
+.help-grid{display:grid;grid-template-columns:7fr 5fr;gap:80px;align-items:center}
+.help-img{height:380px}
 
 .cta-section{background:var(--grad-hero);padding:120px 48px;text-align:center;position:relative;overflow:hidden}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(46,143,212,0.15) 0%,transparent 70%);pointer-events:none;z-index:1}
@@ -107,6 +109,8 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   .nav-inner{padding:0 24px}
   .page-hero{padding:120px 24px 60px}
   .cta-section{padding:64px 24px}
+  .help-grid{grid-template-columns:1fr;gap:40px}
+  .help-img{height:280px}
 }
 @media(max-width:480px){
   .logo img{height:56px !important}
@@ -119,7 +123,19 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 @media(max-width:900px){
   .logo img{height:72px !important}
 }
+
+/* ===== Imagery & motion ===== */
+.page-hero,.hero{isolation:isolate;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:-3%;background-size:cover;background-position:center;z-index:-1;animation:kenburns 34s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.img-frame{margin:0;border-radius:3px;overflow:hidden;position:relative;background:var(--navy)}
+.img-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.img-frame:hover img{transform:scale(1.04)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hero-bg{animation:none}.js .reveal{opacity:1;transform:none;transition:none}.img-frame img{transition:none}.img-frame:hover img{transform:none}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
@@ -153,7 +169,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a class="nav-btn" href="/contact">Get in Touch</a>
 </div>
 
-<div class="page-hero"><div class="ph-inner">
+<div class="page-hero"><div class="hero-bg" role="img" aria-label="Modern glass office towers" style="background-image:url('/images/towers.webp');background-position:center 30%"></div><div class="ph-inner">
   <span class="overline overline-light">Systems &amp; Platforms</span>
   <h1><strong>Technologies</strong></h1>
   <p>Real-world experience across the market-leading systems that power Trust, Corporate and Funds administration.</p>
@@ -166,7 +182,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       <p>We have experience with a variety of market-leading technologies — helping clients assess and develop their usage, implement the solutions in partnership with the vendors and running diagnostics to unlock unused potential and value.</p>
     </div>
 
-    <div class="tech-category">
+    <div class="tech-category reveal">
       <span class="tech-cat-label">Trust &amp; Corporate</span>
       <div class="tech-grid">
         <div class="tech-card">
@@ -201,7 +217,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       </div>
     </div>
 
-    <div class="tech-category">
+    <div class="tech-category reveal">
       <span class="tech-cat-label">Funds Services &amp; Fund Accounting</span>
       <div class="tech-grid">
         <div class="tech-card">
@@ -238,7 +254,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
       </div>
     </div>
 
-    <div class="tech-category">
+    <div class="tech-category reveal">
       <span class="tech-cat-label">Other Technologies</span>
       <div class="tech-grid">
         <div class="tech-card">
@@ -283,10 +299,13 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 </div>
 
 <div class="section section-alt">
-  <div class="section-inner">
+  <div class="section-inner help-grid reveal">
+    <div>
     <span class="overline">How We Help</span>
     <h2 class="display">System value, <strong>realised.</strong></h2>
     <p class="body-text" style="max-width:720px;margin-top:24px">Beyond implementation, we help clients get more out of the systems they already use — running focused diagnostics to identify unused functionality, process gaps and configuration issues that quietly cost time and introduce risk. Where a new system is the right answer, we work in partnership with vendors to scope, select and implement solutions that fit the operating model, not the other way around.</p>
+    </div>
+    <figure class="img-frame help-img"><img src="/images/gantt.webp" alt="Programme plan shown as a Gantt chart on a laptop" loading="lazy"></figure>
   </div>
 </div>
 
@@ -311,6 +330,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 </div></footer>
 
 <script>
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)})})();
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');

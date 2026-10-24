@@ -53,7 +53,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--grad-hero);
 h2.display{font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;letter-spacing:-0.01em}
 h2.display strong{font-weight:700}
 .body-text{font-size:17px;font-weight:300;color:var(--mid);line-height:1.9}
-.page-hero{background-image:url('https://i.ibb.co/M51zJr5N/i-Stock-1500645450.jpg');background-size:cover;background-position:center;padding:160px 48px 80px;position:relative}
+.page-hero{padding:160px 48px 80px;position:relative}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,27,48,0.88) 0%,rgba(15,46,80,0.80) 50%,rgba(10,36,64,0.86) 100%);z-index:0}
 .ph-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .ph-inner{max-width:1200px;margin:0 auto}
@@ -65,6 +65,10 @@ h2.display strong{font-weight:700}
 .svc-detail-label h3{font-size:clamp(20px,2.5vw,30px);font-weight:300;color:var(--navy);line-height:1.2;margin-top:12px}
 .svc-detail-label h3 strong{font-weight:700}
 .svc-detail-label p{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic;line-height:1.65}
+.svc-img{margin-top:28px;height:240px}
+.svc-panel{margin-top:28px;height:240px;border-radius:3px;background:var(--grad-dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.svc-panel::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(184,151,58,0.22) 0%,transparent 70%)}
+.svc-panel svg{width:92px;height:92px;position:relative;z-index:1}
 .svc-detail-body p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:28px}
 .svc-detail-body ul{list-style:none;display:grid;gap:10px}
 .svc-detail-body ul li{font-size:14px;color:var(--mid);padding-left:16px;position:relative;line-height:1.6}
@@ -89,6 +93,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   .nav-links{display:none}
   .burger{display:flex}
   .svc-detail{grid-template-columns:1fr;gap:24px}
+  .svc-img,.svc-panel{height:200px}
   .diff-grid{grid-template-columns:1fr}
   .section{padding:64px 24px}
   .nav-inner{padding:0 24px}
@@ -103,7 +108,19 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 @media(max-width:900px){
   .logo img{height:72px !important}
 }
+
+/* ===== Imagery & motion ===== */
+.page-hero,.hero{isolation:isolate;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:-3%;background-size:cover;background-position:center;z-index:-1;animation:kenburns 34s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.img-frame{margin:0;border-radius:3px;overflow:hidden;position:relative;background:var(--navy)}
+.img-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.img-frame:hover img{transform:scale(1.04)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hero-bg{animation:none}.js .reveal{opacity:1;transform:none;transition:none}.img-frame img{transition:none}.img-frame:hover img{transform:none}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <nav>
@@ -136,43 +153,43 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a class="nav-btn" href="/contact">Get in Touch</a>
 </div>
 
-<div class="page-hero"><div class="ph-inner">
+<div class="page-hero"><div class="hero-bg" role="img" aria-label="Boardroom meeting overlooking the bay at sunset" style="background-image:url('/images/boardroom.webp');background-position:center 40%"></div><div class="ph-inner">
   <span class="overline overline-light">What We Do</span>
   <h1><strong>Services</strong></h1>
   <p>Five engagement models, each grounded in real-world experience — practical, senior, and outcome-focused across transformation, operations, governance and change.</p>
 </div></div>
 
 <div class="section"><div class="section-inner"><div style="display:grid;gap:64px">
-  <div class="svc-detail">
-    <div class="svc-detail-label"><span class="overline">Fractional COO</span><h3>fCOO <strong>Services</strong></h3><p>Embedded operational leadership for your business</p></div>
+  <div class="svc-detail reveal">
+    <div class="svc-detail-label"><span class="overline">Fractional COO</span><h3>fCOO <strong>Services</strong></h3><p>Embedded operational leadership for your business</p></p><figure class="img-frame svc-img"><img src="/images/listening.webp" alt="Senior leader listening attentively in a board meeting" loading="lazy"></figure></div>
     <div class="svc-detail-body">
       <p>We support businesses by being embedded within the organisation — providing advice, support, and consultancy based on lived experience and a proven track record of operational oversight, delivery and transformation. A Fractional COO gives you access to senior operational leadership precisely when and where you need it, without the cost or commitment of a full-time hire.</p>
       <ul><li>Embedded operational oversight and senior advisory support</li><li>Board and Management Committee representation and support</li><li>Operational Excellence and efficiency improvement programmes</li><li>Risk management, governance frameworks and regulatory compliance</li><li>People, process and platform optimisation across service lines</li><li>Interim COO cover and senior leadership continuity</li><li>Strategic planning and operational roadmap development</li></ul>
     </div>
   </div>
-  <div class="svc-detail">
-    <div class="svc-detail-label"><span class="overline">Project / Programme</span><h3>Project Execution &amp; <strong>Outsourced PMO</strong></h3><p>Senior programme leadership and independent assurance</p></div>
+  <div class="svc-detail reveal">
+    <div class="svc-detail-label"><span class="overline">Project / Programme</span><h3>Project Execution &amp; <strong>Outsourced PMO</strong></h3><p>Senior programme leadership and independent assurance</p></p><figure class="img-frame svc-img"><img src="/images/gantt.webp" alt="Programme plan shown as a Gantt chart on a laptop" loading="lazy"></figure></div>
     <div class="svc-detail-body">
       <p>We support the implementation and running of your Project Management Office (PMO), or provide specific and independent project delivery and/or assurance support — whether it be for technology enablement, AI deployments, system selection, migration and/or implementation. Senior, immediately deployable, and without the overhead of a large consulting engagement.</p>
       <ul><li>PMO design, establishment and end-to-end programme leadership</li><li>Governance frameworks, workstream structure and RAID management</li><li>Technology enablement and AI deployment oversight</li><li>System selection, procurement, migration and implementation management</li><li>Independent project assurance, challenge and quality review</li><li>Programme reporting, RAG tracking and board-level updates</li></ul>
     </div>
   </div>
-  <div class="svc-detail">
-    <div class="svc-detail-label"><span class="overline">Mergers &amp; Acquisitions</span><h3>M&amp;A Support &amp; <strong>IMO</strong></h3><p>Full deal-cycle support, separation and integration execution</p></div>
+  <div class="svc-detail reveal">
+    <div class="svc-detail-label"><span class="overline">Mergers &amp; Acquisitions</span><h3>M&amp;A Support &amp; <strong>IMO</strong></h3><p>Full deal-cycle support, separation and integration execution</p></p><figure class="img-frame svc-img"><img src="/images/pen-charts.webp" alt="Reviewing financial charts during deal analysis" loading="lazy"></figure></div>
     <div class="svc-detail-body">
       <p>We provide support across the full M&amp;A deal cycle — from pre-deal due diligence through to separation planning and hands-on integration execution. Where an Integration Management Office (IMO) is required, we can establish and run it end-to-end, providing the senior operational leadership to drive your integration or separation forward.</p>
       <ul><li>Pre-deal support, due diligence and deal structuring input</li><li>Separation planning and carve-out execution</li><li>IMO design, establishment and end-to-end leadership</li><li>Integration execution and Day 1 readiness planning</li><li>Synergy identification, tracking and post-deal value realisation</li><li>Regulatory and compliance risk management throughout the deal</li></ul>
     </div>
   </div>
-  <div class="svc-detail">
-    <div class="svc-detail-label"><span class="overline">Advisory &amp; Consultancy</span><h3>Expert <strong>Consultancy</strong></h3><p>Experience-led advisory for transformation and change</p></div>
+  <div class="svc-detail reveal">
+    <div class="svc-detail-label"><span class="overline">Advisory &amp; Consultancy</span><h3>Expert <strong>Consultancy</strong></h3><p>Experience-led advisory for transformation and change</p></p><figure class="img-frame svc-img"><img src="/images/team.webp" alt="Advisers working through a problem with a client team" loading="lazy"></figure></div>
     <div class="svc-detail-body">
       <p>Borne from extensive experience scoping, mobilising and delivering projects, transformation and Continuous Improvement / Operational Excellence initiatives across regulated financial services businesses over 10+ years. We bring practical, execution-focused insight — not just strategic observation — to every engagement.</p>
       <ul><li>Business transformation scoping, mobilisation and delivery</li><li>Continuous Improvement and Lean Six Sigma programmes</li><li>Operating model review, redesign and implementation</li><li>Target operating model (TOM) design and transition planning</li><li>Regulatory and compliance advisory for regulated FS businesses</li><li>RPA, digitisation and process automation programmes</li><li>Strategic change, organisational design and effectiveness</li></ul>
     </div>
   </div>
-  <div class="svc-detail" id="ai-data-protection">
-    <div class="svc-detail-label"><span class="overline">AI &amp; Data Protection</span><h3>AI Governance &amp; <strong>Data Protection</strong></h3><p>Responsible AI adoption and data protection compliance, led by an experienced DPO</p></div>
+  <div class="svc-detail reveal" id="ai-data-protection">
+    <div class="svc-detail-label"><span class="overline">AI &amp; Data Protection</span><h3>AI Governance &amp; <strong>Data Protection</strong></h3><p>Responsible AI adoption and data protection compliance, led by an experienced DPO</p><div class="svc-panel" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4l13 5v10c0 8-5.6 14.4-13 17-7.4-2.6-13-9-13-17V9l13-5z" stroke="#B8973A" stroke-width="1.2" stroke-linejoin="round"/><path d="M14 20l4 4 8-9" stroke="#5AAEE0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
     <div class="svc-detail-body">
       <p>We help regulated businesses adopt AI with confidence and meet their data protection obligations. Our Founder has been the Board member accountable for data protection, cyber security and AI oversight, and has served as Data Protection Officer for three regulated financial services groups in Jersey. Whether you need an independent review, a framework built from the ground up, or an ongoing outsourced DPO, we provide practical, proportionate support that stands up to regulatory scrutiny.</p>
       <ul><li>AI strategy and governance reviews, including independent assurance of existing AI programmes</li><li>AI policies, acceptable use policies, AI risk registers and risk management frameworks</li><li>AI tool due diligence and safe deployment, including Microsoft 365 Copilot</li><li>Data protection and GDPR compliance reviews under the Data Protection (Jersey) Law 2018, UK GDPR and EU GDPR</li><li>Privacy notices, records of processing, DPIAs and data protection risk assessments</li><li>Outsourced Data Protection Officer (DPO) services, including JOIC liaison, breach management and data subject requests</li><li>Board and staff training on AI governance and data protection</li></ul>
@@ -183,7 +200,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 <div class="section section-alt"><div class="section-inner">
   <span class="overline">Why Momentum</span>
   <h2 class="display">What differentiates <strong>us.</strong></h2>
-  <div class="diff-grid">
+  <div class="diff-grid reveal">
     <div class="diff-item"><h3>Lived Experience — not theory</h3><p>Our Founder has held COO and senior operational roles across regulated financial services for 15+ years. The person you engage is the person who does the work — bringing lived experience, not theoretical frameworks.</p></div>
     <div class="diff-item"><h3>Breadth Across Financial Services</h3><p>Deep hands-on experience across Banking, Trust, Corporate and Funds — including complex multi-jurisdictional and regulated environments across Crown Dependencies and internationally.</p></div>
     <div class="diff-item"><h3>Transformation That Sticks</h3><p>A proven track record of delivering complex transformation and Operational Excellence programmes that achieve lasting change — not just recommendations presented in a deck.</p></div>
@@ -226,6 +243,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
     </div>
 </div></footer>
 <script>
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)})})();
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');

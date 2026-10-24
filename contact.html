@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--grad-hero);
 .section-inner{max-width:1200px;margin:0 auto}
 .overline{font-size:22px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block}
 .overline-light{color:var(--accent-light)}
-.page-hero{background-image:url('https://i.ibb.co/M51zJr5N/i-Stock-1500645450.jpg');background-size:cover;background-position:center;padding:160px 48px 80px;position:relative}
+.page-hero{padding:160px 48px 80px;position:relative}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,27,48,0.88) 0%,rgba(15,46,80,0.80) 50%,rgba(10,36,64,0.86) 100%);z-index:0}
 .ph-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .page-hero h1{font-size:clamp(32px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px}
@@ -105,7 +105,19 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 @media(max-width:900px){
   .logo img{height:72px !important}
 }
+
+/* ===== Imagery & motion ===== */
+.page-hero,.hero{isolation:isolate;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:-3%;background-size:cover;background-position:center;z-index:-1;animation:kenburns 34s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.img-frame{margin:0;border-radius:3px;overflow:hidden;position:relative;background:var(--navy)}
+.img-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.img-frame:hover img{transform:scale(1.04)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hero-bg{animation:none}.js .reveal{opacity:1;transform:none;transition:none}.img-frame img{transition:none}.img-frame:hover img{transform:none}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <nav>
@@ -138,14 +150,14 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   <a class="nav-btn" href="/contact">Get in Touch</a>
 </div>
 
-<div class="page-hero"><div class="ph-inner">
+<div class="page-hero"><div class="hero-bg" role="img" aria-label="Mont Orgueil Castle, Jersey, at sunset" style="background-image:url('/images/castle.webp');background-position:center 40%"></div><div class="ph-inner">
   <span class="overline overline-light">Get in Touch</span>
   <h1><strong>Contact</strong> Us</h1>
   <p>We welcome an initial conversation about your requirements. All enquiries are treated in strict confidence.</p>
 </div></div>
 
 <div class="section"><div class="section-inner">
-  <div class="contact-grid">
+  <div class="contact-grid reveal">
     <div>
       <div class="con-info">
         <div class="con-info-name">Andy Mallet</div>
@@ -247,6 +259,7 @@ function submitForm(e){
       alert('There was a problem submitting your enquiry. Please email us directly at andy@momentumjersey.com');
     });
 }
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)})})();
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');
