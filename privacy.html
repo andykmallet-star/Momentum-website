@@ -117,7 +117,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   .foot-links{gap:20px}
 }
 @media(max-width:480px){
-  .logo img{height:56px !important}
+  .logo img{height:44px !important}
   .nav-inner{height:72px}
   .mobile-menu{top:72px}
   .facts{grid-template-columns:1fr}
@@ -134,8 +134,8 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
   .tbl td:first-child{border-top:none;background:var(--navy)!important;color:#fff;border-radius:3px 3px 0 0}
   .tbl td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 }
-@media(max-width:900px){
-  .logo img{height:72px !important}
+@media(min-width:481px) and (max-width:900px){
+  .logo img{height:52px !important}
 }
 @media print{
   nav,.mobile-menu,footer{display:none}
@@ -164,7 +164,7 @@ footer{background:var(--grad-mid);border-top:1px solid var(--rule);padding:40px 
 <nav>
   <div class="nav-inner">
     <a href="/" class="logo">
-      <img src="https://i.ibb.co/DP6gMC1S/momentum-advisory-logo-navy.jpg" alt="Momentum Advisory" style="height:95px;width:auto;display:block">
+      <img src="/images/logo.png" alt="Momentum Advisory" width="196" height="60" style="height:60px;width:auto;display:block">
     </a>
     <div class="nav-links">
       <a class="nl" href="/">Home</a>
